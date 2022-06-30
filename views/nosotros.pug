@@ -1,0 +1,30 @@
+extends ./layout/index
+block contenido
+    main.container.mt-5 
+        .row 
+            .col-md-5
+                img(src="/img/nosotros.jpg", alt="Sobre nosotros", class="img-fluid")
+            .col-md-7 
+                h1 #{pagina}
+                blockquote Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus viverra posuere. Curabitur sagittis elit orci, dignissim fringilla dui lacinia et. Praesent gravida, enim sit amet vestibulum porta, ex nulla accumsan lectus, sed consequat purus mi id arcu. In sagittis vehicula diam nec posuere. Sed suscipit condimentum sagittis. Curabitur sit amet commodo lorem.
+                
+                p Ut volutpat arcu efficitur blandit ornare. Phasellus nec metus gravida, porttitor arcu eu, aliquet nisi. Pellentesque bibendum sodales tellus, eu pharetra sapien dapibus vel. Etiam eget ipsum elit. Vestibulum imperdiet aliquam leo, nec commodo lectus ullamcorper sed.
+
+                p Integer iaculis laoreet mauris ac blandit. Cras porta mauris massa, sed sagittis libero varius eu. Cras porttitor, lacus a fringilla mattis, augue leo rhoncus tortor, ut auctor ligula leo ut est. Donec finibus augue quis magna gravida laoreet. Morbi non scelerisque tellus. 
+
+    .listado-iconos 
+        .container.mt-5.py-5.text-center 
+            .row
+                .col-md-4
+                    img(src="/img/icono_seguridad.svg", alt="icono seguridad")
+                    h2 Seguridad 
+                    p Donec finibus augue quis magna gravida laoreet. Morbi non scelerisque tellus.
+
+                .col-md-4
+                    img(src="/img/icono_destinos.svg", alt="icono destinos")
+                    h2 Destinos Magníficos 
+                    p Donec finibus augue quis magna gravida laoreet. Morbi non scelerisque tellus.
+                .col-md-4
+                    img(src="/img/icono_precios.svg", alt="icono precios")
+                    h2 Los Mejores Precios  
+                    p Donec finibus augue quis magna gravida laoreet. Morbi non scelerisque tellus. 
