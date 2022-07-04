@@ -1,0 +1,98 @@
+/* Estilos del administrador*/
+.table-responsive {
+    overflow-x: auto;
+}
+.table-travels{
+    margin: 2rem 0;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.table-travels tr td {
+    border-top: 1px solid #e1e1e1;
+    padding: 1rem;
+}
+
+.table-travels a {
+    cursor: pointer;
+    border: none;
+    width: 4rem;
+    border-radius: 0.25rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.table-form {
+    background-color: tomato;
+    width: 4rem;
+    border-radius: 0.25rem;
+}
+.table-form button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-update {
+    background-color: #15B9D5;
+}
+
+.btn-delete{
+    background-color: tomato;
+}
+
+.btn-create {
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 2rem 0;
+    background-color: #DC135F;
+    padding: 1rem 3rem;
+    border-radius: 0.25rem;
+    color: white;
+    transition: background-color 300ms ease-in;
+}
+
+@media (min-width: 768px) {
+    .btn-create {
+        display: inline-block;
+        width: 12rem;
+    }
+}
+
+.btn-create:hover {
+    background-color: #9A0D42;
+    color: white;
+    text-decoration: none;
+
+}
+
+/*Estilos Formulario*/
+.form-container {
+    max-width: 40rem;
+    margin: 3rem auto;
+}
+
+
+.campo {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.campo label {
+    flex-basis: 7rem;
+}
+.campo input,
+.campo textarea {
+    flex: 1;
+    padding: 0.25rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 0.25rem;
+}
+
+.campo textarea {
+    height: 8rem;
+}

@@ -28,4 +28,34 @@ const Viaje = db.define('viajes', {
     }
 });
 
-export { Viaje };
+// Validar Crear y Editar Viajes
+const validarEntradas = (data) => {
+    let errores = [];
+    const { titulo, precio, fecha_ida, fecha_vuelta, imagen, descripcion, disponibles } = data;
+
+    if (titulo.trim() === '') {
+        errores.push({ mensaje: 'El destino es obligatorio' });
+    }
+    if (precio === '' || isNaN(parseInt(precio))) {
+        errores.push({ mensaje: 'El precio es obligatorio' });
+    }
+    if (fecha_ida === '') {
+        errores.push({ mensaje: 'La fecha de ida es obligatoria' });
+    }
+    if (fecha_vuelta === '') {
+        errores.push({ mensaje: 'La fecha de vuelta es obligatoria' });
+    }
+    if (imagen.trim() === '') {
+        errores.push({ mensaje: 'La imagen es obligatoria' });
+    }
+    if (descripcion.trim() === '') {
+        errores.push({ mensaje: 'La descripcion es obligatoria' });
+    }
+    if (disponibles === '' || isNaN(parseInt(disponibles))) {
+        errores.push({ mensaje: 'Los lugares disponibles son obligatorios' });
+    }
+
+    return errores;
+}
+
+export { Viaje, validarEntradas };

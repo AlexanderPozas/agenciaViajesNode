@@ -64,4 +64,48 @@ const paginaTestimoniales = async (req, res) => {
     }
 }
 
-export { paginaInicio, paginaNosotros, paginaViajes, paginaTestimoniales, paginaDetalleViaje };
+// Página de administración
+const paginaAdmin = async(req, res) => {
+    // consultar Viajes
+    const viajes = await Viaje.findAll();
+
+    res.render('admin', {
+        pagina: 'Administrar Viajes',
+        viajes
+    });
+};
+
+const crearViaje = (req, res) => {
+
+    res.render('viaje-crear', {
+        pagina: 'Crea un Nuevo Viaje',
+    });
+};
+
+const editarViaje = async (req, res) => {
+
+    // console.log(req.query); // Obtiene parametros de la url con el query string ?
+    const {id} = req.query;
+
+    try {
+        const viaje = await Viaje.findOne({where: { slug: id }});
+        const {titulo, precio, fecha_ida, fecha_vuelta, imagen, descripcion, disponibles} = viaje;
+        res.render('viaje-editar', {
+            pagina: 'Editar Viaje',
+            titulo,
+            precio,
+            fecha_ida,
+            fecha_vuelta,
+            imagen,
+            descripcion,
+            disponibles
+        })
+
+    } catch (error) {
+        console.log(error);
+    }
+
+
+};
+
+export { paginaInicio, paginaNosotros, paginaViajes, paginaTestimoniales, paginaDetalleViaje, paginaAdmin, crearViaje,editarViaje};

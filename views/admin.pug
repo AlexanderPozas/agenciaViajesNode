@@ -1,0 +1,45 @@
+extends ./layout/index
+block contenido
+    .container 
+        h1.text-center.mt-5 
+            | #{pagina}
+
+        a.btn-create(href="/admin/crear")
+            | Crear Viaje 
+        .table-responsive 
+            table.table-travels
+                thead 
+                    th Id 
+                    th Titulo 
+                    th Precio
+                    th Fecha ida
+                    th Fecha vuelta 
+                    th Imagen 
+                    th Disponibilidad
+                    th 
+                tbody
+                    each viaje in viajes 
+                        tr
+                            td= viaje.id
+                            td= viaje.titulo
+                            td= viaje.precio 
+                            td= viaje.fecha_ida 
+                            td= viaje.fecha_vuelta
+                            td
+                                img.img-fluid(src=`/img/destinos_${viaje.imagen}.jpg`, alt=`viaje a ${viaje.titulo}`, width="150", height="100")
+                            td= viaje.disponibles
+                            td
+                                a.btn-update(href=`/admin/editar?id=${viaje.slug}`)
+                                    svg.icon.icon-tabler.icon-tabler-edit(xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                                        path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                                        path(d='M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3')
+                                        path(d='M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3')
+                                        line(x1='16' y1='5' x2='19' y2='8')
+
+                                form.table-form(action="/admin/eliminar", method="POST") 
+                                    input(type="hidden", name="id", value= viaje.slug)
+                                    button.btn-delete(type="submit") 
+                                        svg.icon.icon-tabler.icon-tabler-square-x(xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                                            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                                            rect(x='4' y='4' width='16' height='16' rx='2')
+                                            path(d='M10 10l4 4m0 -4l-4 4')

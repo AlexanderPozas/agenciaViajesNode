@@ -1,0 +1,17 @@
+extends ./layout/index
+block contenido
+    .container 
+        h1.text-center.mt-5 
+            | #{pagina}
+        .form-container
+            a.btn-create(href="/admin")
+                | Volver
+            if(errores)
+                each error in errores 
+                    .alert.alert-danger.d-block.text-center
+                        | #{error.mensaje}
+            blockquote.text-center Edita los datos del viaje
+            p= JSON.stringify(viaje)
+            form.formulario(action="", method="POST")
+                include ./layout/formulario_viaje                
+                input.btn-create(type="submit", value="Guardar Cambios")
